@@ -37,7 +37,7 @@ class OrdersController extends Controller
             $customer->equipment = $request->equipment;
             $customer->email = $request->email;
             $customer->save();
-            return redirect('/list');
+            return redirect()->back()->with('message', 'Jūsų registracija priimta.');
         }
     }
 
@@ -45,18 +45,5 @@ class OrdersController extends Controller
     {
         if ($request->isMethod('get'))
             return view('orders.details', ['customer' => Customer::find($id)]);
-        /*        else {
-                    $rules = [
-                        'name' => 'required',
-                        'email' => 'required|email',
-                    ];
-                    $this->validate($request, $rules);
-                    $customer = Customer::find($id);
-                    $customer->name = $request->name;
-                    $customer->equipment = $request->equipment;
-                    $customer->email = $request->email;
-                    $customer->save();
-                    return redirect('/list');
-                }                                                   */
     }
 }

@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'list'], function () {
-    Route::get('/', 'OrdersController@index');
-    Route::match(['get', 'post'], 'create', 'OrdersController@create');
-    Route::get('details/{id?}', 'OrdersController@details');
-});
+Route::get('/', 'OrdersController@index');
+Route::match(['get', 'post'], 'create', 'OrdersController@create');
+Route::get('details/{id?}', 'OrdersController@details');

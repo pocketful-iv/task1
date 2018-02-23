@@ -9,14 +9,14 @@
 @section('content')
     <div class="container">
         <div class="float-right">
-            <a href="{{url('list/create')}}" class="btn btn-primary">Registracija</a>
+            <a href="{{url('/create')}}" class="btn btn-primary">Registracija</a>
         </div>
         <h1 style="font-size: 2.2rem">Registracijų sąrašas</h1>
         <hr/>
         {!! Form::open(['method'=>'get']) !!}
         <div class="row">
             <div class="col-sm-4 form-group">
-                {!! Form::select('equipment',['-1'=>'Rikiuoti pagal nardymo būdą','Snorkelingas'=>'Snorkelingas','Daivingas'=>'Daivingas'],null,['class'=>'form-control','onChange'=>'form.submit()']) !!}
+                {!! Form::select('equipment',['-1'=>'Pasirinkite nardymo būdą','Snorkelingas'=>'Snorkelingas','Daivingas'=>'Daivingas'],null,['class'=>'form-control','onChange'=>'form.submit()']) !!}
             </div>
             <div class="col-sm-5 form-group">
                 <div class="input-group">
@@ -40,22 +40,22 @@
             <tr>
                 <th width="60px" style="vertical-align: middle;text-align: center">Nr.</th>
                 <th style="vertical-align: middle">
-                    <a href="{{url('list')}}?search={{request('search')}}&equipment={{request('equipment')}}&field=name&sort={{request('sort','asc')=='asc'?'desc':'asc'}}">
+                    <a href="{{url('/')}}?search={{request('search')}}&equipment={{request('equipment')}}&field=name&sort={{request('sort','asc')=='asc'?'desc':'asc'}}">
                         Vardas
                     </a>
-                    {{request('field','name')=='name'?(request('sort','asc')=='asc'?'&#9652;':'&#9662;'):''}}
+                    {{request('field','name')=='name'?(request('sort','asc')=='asc'?'▴':'▾'):''}}
                 </th>
                 <th style="vertical-align: middle">
-                    <a href="{{url('list')}}?search={{request('search')}}&equipment={{request('equipment')}}&field=equipment&sort={{request('sort','asc')=='asc'?'desc':'asc'}}">
+                    <a href="{{url('/')}}?search={{request('search')}}&equipment={{request('equipment')}}&field=equipment&sort={{request('sort','asc')=='asc'?'desc':'asc'}}">
                         Nardymo būdas
                     </a>
-                    {{request('field')=='equipment'?(request('sort','asc')=='asc'?'&#9652;':'&#9662;'):''}}
+                    {{request('field')=='equipment'?(request('sort','asc')=='asc'?'▴':'▾'):''}}
                 </th>
                 <th style="vertical-align: middle">
-                    <a href="{{url('list')}}?search={{request('search')}}&equipment={{request('equipment')}}&field=email&sort={{request('sort','asc')=='asc'?'desc':'asc'}}">
+                    <a href="{{url('/')}}?search={{request('search')}}&equipment={{request('equipment')}}&field=email&sort={{request('sort','asc')=='asc'?'desc':'asc'}}">
                         El. paštas
                     </a>
-                    {{request('field')=='email'?(request('sort','asc')=='asc'?'&#9652;':'&#9662;'):''}}
+                    {{request('field')=='email'?(request('sort','asc')=='asc'?'▴':'▾'):''}}
                 </th>
                 <th width="130px" style="vertical-align: middle"></th> <!--Plačiau-->
             </tr>
@@ -74,7 +74,7 @@
                         <form id="frm_{{$customer->id}}"
                                method="post" style="padding-bottom: 0px;margin-bottom: 0px">
                             <a class="btn btn-dark btn-sm" title="Edit"
-                               href="{{url('list/details/'.$customer->id)}}">
+                               href="{{url('/details/'.$customer->id)}}">
                                Peržiūrėti</a>
                             {{csrf_field()}}
                         </form>

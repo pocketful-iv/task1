@@ -19,12 +19,10 @@
     <a class="navbar-brand" target="_blank" href="https://github.com/pocketful/task1">GITHUB</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="{{url('list/create')}}">Nardymas <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="{{url('list')}}">Registracijos</a>
+            <a class="nav-item nav-link active" href="{{url('/create')}}">Nardymas <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="{{url('/')}}">Registracijos</a>
         </div>
     </div>
-</nav>
-    @yield('nav')
 </nav>
 @yield('content')
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
